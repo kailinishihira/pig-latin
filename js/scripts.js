@@ -17,13 +17,21 @@ var pigLatin = function(input){
     if (input[0] === "a" || input[0] === "e" || input[0] === "o" || input[0] === "i" || input[0] === "u") {
       input += "way";
       return input;
-    }else if (input[0] !== "a") {
-      var splitedInput = input.split('');
-      for (var i = 0; i < splitedInput.length; i++) {
-        if (splitedInput[i] === "a") {
-          var spliced = splitedInput.splice(0,i);
-          return splitedInput.join('') + spliced.join('') +  "ay";
-        }
+    } else if (input[0] !== "a" || input[0] !== "e" || input[0] !== "o" || input[0] !== "i" || input[0] !== "u") {
+        var splitedInput = input.split('');
+        if (input[0] === "q" && input[1] === "u") {
+          var spliceQu = splitedInput.splice(0,2);
+          return splitedInput.join('') + spliceQu.join('') + "ay";
+      }else if (input[1] === "q" && input[2] === "u") {
+        var splice_Qu = splitedInput.splice(0,3);
+        return splitedInput.join('') + splice_Qu.join('') + "ay";
+      }else {
+        for (var i = 0; i < splitedInput.length; i++) {
+          if (splitedInput[i] === "a" ||splitedInput[i] === "e" ||splitedInput[i] === "i" ||splitedInput[i] === "o" ||splitedInput[i] === "u") {
+            var spliced = splitedInput.splice(0,i);
+            return splitedInput.join('') + spliced.join('') +  "ay";
+          }
+      }
       }
     }
   }
