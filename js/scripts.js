@@ -1,16 +1,21 @@
 $(document).ready(function() {
  $("#pig-latin").submit(function(event) {
    event.preventDefault();
-debugger;
+//debugger;
    var userInput = $("#english").val();
    var output = pigLatin(userInput);
-    $("#result").append(output);
+    $("#result").text(output);
  });
 });
 //business logic
 var pigLatin = function(input){
   if (!isNaN(input)) {
     return input;
+  } else {
+    if (input[0] === "a" || input[0] === "e" || input[0] === "o" || input[0] === "i" ||nput[0] === "u") {
+      input += "way";
+      return input;
+    }
   }
 
   //if input is a number return the number
